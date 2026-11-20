@@ -170,6 +170,23 @@ The backend allows:
 
 Add the deployed frontend URL to the `allow_origins` list before production deployment.
 
+## Vercel Deployment
+
+The repository includes `vercel.json` and `.nvmrc` so Vercel can use:
+
+- Node.js 20
+- `npm run build`
+- `dist` as the output directory
+
+Add this environment variable in Vercel Project Settings:
+
+```text
+VITE_API_BASE_URL=https://your-deployed-backend-url
+```
+
+Redeploy after changing frontend environment variables. The FastAPI backend and Groq key must
+be deployed separately and the backend CORS configuration must include the Vercel frontend URL.
+
 ## Build
 
 Create a production frontend build:
